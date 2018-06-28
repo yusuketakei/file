@@ -1,0 +1,485 @@
+Using username "ubuntu".
+Authenticating with public key "imported-openssh-key"
+Welcome to Ubuntu 16.04.4 LTS (GNU/Linux 4.4.0-128-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+  Get cloud support with Ubuntu Advantage Cloud Guest:
+    http://www.ubuntu.com/business/services/cloud
+
+14 packages can be updated.
+0 updates are security updates.
+
+
+
+The programs included with the Ubuntu system are free software;
+the exact distribution terms for each program are described in the
+individual files in /usr/share/doc/*/copyright.
+
+Ubuntu comes with ABSOLUTELY NO WARRANTY, to the extent permitted by
+applicable law.
+
+To run a command as administrator (user "root"), use "sudo <command>".
+See "man sudo_root" for details.
+
+ubuntu@instance-20180628-0844:~$
+ubuntu@instance-20180628-0844:~$
+ubuntu@instance-20180628-0844:~$
+ubuntu@instance-20180628-0844:~$
+ubuntu@instance-20180628-0844:~$ sudo ufw status
+Status: inactive
+ubuntu@instance-20180628-0844:~$ sudo ufw ?
+ERROR: Invalid syntax
+
+Usage: ufw COMMAND
+
+Commands:
+ enable                          enables the firewall
+ disable                         disables the firewall
+ default ARG                     set default policy
+ logging LEVEL                   set logging to LEVEL
+ allow ARGS                      add allow rule
+ deny ARGS                       add deny rule
+ reject ARGS                     add reject rule
+ limit ARGS                      add limit rule
+ delete RULE|NUM                 delete RULE
+ insert NUM RULE                 insert RULE at NUM
+ route RULE                      add route RULE
+ route delete RULE|NUM           delete route RULE
+ route insert NUM RULE           insert route RULE at NUM
+ reload                          reload firewall
+ reset                           reset firewall
+ status                          show firewall status
+ status numbered                 show firewall status as numbered list of RULES
+ status verbose                  show verbose firewall status
+ show ARG                        show firewall report
+ version                         display version information
+
+Application profile commands:
+ app list                        list application profiles
+ app info PROFILE                show information on PROFILE
+ app update PROFILE              update PROFILE
+ app default ARG                 set default application policy
+
+ubuntu@instance-20180628-0844:~$ sudo ufw enable
+Command may disrupt existing ssh connections. Proceed with operation (y|n)? n
+Aborted
+ubuntu@instance-20180628-0844:~$
+ubuntu@instance-20180628-0844:~$
+ubuntu@instance-20180628-0844:~$ su -
+Password:
+su: Authentication failure
+ubuntu@instance-20180628-0844:~$ sudo ufw default
+ERROR: Invalid syntax
+
+Usage: ufw COMMAND
+
+Commands:
+ enable                          enables the firewall
+ disable                         disables the firewall
+ default ARG                     set default policy
+ logging LEVEL                   set logging to LEVEL
+ allow ARGS                      add allow rule
+ deny ARGS                       add deny rule
+ reject ARGS                     add reject rule
+ limit ARGS                      add limit rule
+ delete RULE|NUM                 delete RULE
+ insert NUM RULE                 insert RULE at NUM
+ route RULE                      add route RULE
+ route delete RULE|NUM           delete route RULE
+ route insert NUM RULE           insert route RULE at NUM
+ reload                          reload firewall
+ reset                           reset firewall
+ status                          show firewall status
+ status numbered                 show firewall status as numbered list of RULES
+ status verbose                  show verbose firewall status
+ show ARG                        show firewall report
+ version                         display version information
+
+Application profile commands:
+ app list                        list application profiles
+ app info PROFILE                show information on PROFILE
+ app update PROFILE              update PROFILE
+ app default ARG                 set default application policy
+
+ubuntu@instance-20180628-0844:~$ sudo ufw default status
+ERROR: Invalid syntax
+
+Usage: ufw COMMAND
+
+Commands:
+ enable                          enables the firewall
+ disable                         disables the firewall
+ default ARG                     set default policy
+ logging LEVEL                   set logging to LEVEL
+ allow ARGS                      add allow rule
+ deny ARGS                       add deny rule
+ reject ARGS                     add reject rule
+ limit ARGS                      add limit rule
+ delete RULE|NUM                 delete RULE
+ insert NUM RULE                 insert RULE at NUM
+ route RULE                      add route RULE
+ route delete RULE|NUM           delete route RULE
+ route insert NUM RULE           insert route RULE at NUM
+ reload                          reload firewall
+ reset                           reset firewall
+ status                          show firewall status
+ status numbered                 show firewall status as numbered list of RULES
+ status verbose                  show verbose firewall status
+ show ARG                        show firewall report
+ version                         display version information
+
+Application profile commands:
+ app list                        list application profiles
+ app info PROFILE                show information on PROFILE
+ app update PROFILE              update PROFILE
+ app default ARG                 set default application policy
+
+ubuntu@instance-20180628-0844:~$ sudo ufw status verbose
+Status: inactive
+ubuntu@instance-20180628-0844:~$ sudo ufw allow 80
+Rules updated
+Rules updated (v6)
+ubuntu@instance-20180628-0844:~$ sudo ufw allow 8080
+Rules updated
+Rules updated (v6)
+ubuntu@instance-20180628-0844:~$ sudo ufw reload
+Firewall not enabled (skipping reload)
+ubuntu@instance-20180628-0844:~$ sudo ufw default allow
+Default incoming policy changed to 'allow'
+(be sure to update your rules accordingly)
+ubuntu@instance-20180628-0844:~$ sudo ufw default allow
+Default incoming policy changed to 'allow'
+(be sure to update your rules accordingly)
+ubuntu@instance-20180628-0844:~$ sudo ufw enable
+Command may disrupt existing ssh connections. Proceed with operation (y|n)? y
+Firewall is active and enabled on system startup
+ubuntu@instance-20180628-0844:~$
+ubuntu@instance-20180628-0844:~$ sudo ufw status
+Status: active
+
+To                         Action      From
+--                         ------      ----
+80                         ALLOW       Anywhere
+8080                       ALLOW       Anywhere
+80 (v6)                    ALLOW       Anywhere (v6)
+8080 (v6)                  ALLOW       Anywhere (v6)
+
+ubuntu@instance-20180628-0844:~$ sudo ufw allow 22
+Rule added
+Rule added (v6)
+ubuntu@instance-20180628-0844:~$ sudo ufw allow 2003
+Rule added
+Rule added (v6)
+ubuntu@instance-20180628-0844:~$ sudo ufw allow 4000-4100
+ERROR: Could not find a profile matching '4000-4100'
+ubuntu@instance-20180628-0844:~$ sudo ufw allow 4000 to 4100
+ERROR: Wrong number of arguments
+ubuntu@instance-20180628-0844:~$ sudo ufw status
+Status: active
+
+To                         Action      From
+--                         ------      ----
+80                         ALLOW       Anywhere
+8080                       ALLOW       Anywhere
+22                         ALLOW       Anywhere
+2003                       ALLOW       Anywhere
+80 (v6)                    ALLOW       Anywhere (v6)
+8080 (v6)                  ALLOW       Anywhere (v6)
+22 (v6)                    ALLOW       Anywhere (v6)
+2003 (v6)                  ALLOW       Anywhere (v6)
+
+ubuntu@instance-20180628-0844:~$ sudo ufw allow 2222
+Rule added
+Rule added (v6)
+ubuntu@instance-20180628-0844:~$ sudo ufw allow 443
+Rule added
+Rule added (v6)
+ubuntu@instance-20180628-0844:~$ sudo ufw status
+Status: active
+
+To                         Action      From
+--                         ------      ----
+80                         ALLOW       Anywhere
+8080                       ALLOW       Anywhere
+22                         ALLOW       Anywhere
+2003                       ALLOW       Anywhere
+2222                       ALLOW       Anywhere
+443                        ALLOW       Anywhere
+80 (v6)                    ALLOW       Anywhere (v6)
+8080 (v6)                  ALLOW       Anywhere (v6)
+22 (v6)                    ALLOW       Anywhere (v6)
+2003 (v6)                  ALLOW       Anywhere (v6)
+2222 (v6)                  ALLOW       Anywhere (v6)
+443 (v6)                   ALLOW       Anywhere (v6)
+
+ubuntu@instance-20180628-0844:~$ sudo ufw allow 80/tcp
+Rule added
+Rule added (v6)
+ubuntu@instance-20180628-0844:~$ sudo ufw status
+Status: active
+
+To                         Action      From
+--                         ------      ----
+80                         ALLOW       Anywhere
+8080                       ALLOW       Anywhere
+22                         ALLOW       Anywhere
+2003                       ALLOW       Anywhere
+2222                       ALLOW       Anywhere
+443                        ALLOW       Anywhere
+80/tcp                     ALLOW       Anywhere
+80 (v6)                    ALLOW       Anywhere (v6)
+8080 (v6)                  ALLOW       Anywhere (v6)
+22 (v6)                    ALLOW       Anywhere (v6)
+2003 (v6)                  ALLOW       Anywhere (v6)
+2222 (v6)                  ALLOW       Anywhere (v6)
+443 (v6)                   ALLOW       Anywhere (v6)
+80/tcp (v6)                ALLOW       Anywhere (v6)
+
+ubuntu@instance-20180628-0844:~$ netstat
+Active Internet connections (w/o servers)
+Proto Recv-Q Send-Q Local Address           Foreign Address         State
+tcp        0    240 instance-20180628-0:ssh 101.102.171.70:49671    ESTABLISHED
+tcp        0      0 instance-20180628:50106 169.254.0.:iscsi-target ESTABLISHED
+Active UNIX domain sockets (w/o servers)
+Proto RefCnt Flags       Type       State         I-Node   Path
+unix  2      [ ]         DGRAM                    38117    /run/user/1000/system                                                  d/notify
+unix  3      [ ]         DGRAM                    39211    /run/systemd/notify
+unix  7      [ ]         DGRAM                    39217    /run/systemd/journal/                                                  socket
+unix  2      [ ]         DGRAM                    484      /run/systemd/journal/                                                  syslog
+unix  10     [ ]         DGRAM                    496      /run/systemd/journal/                                                  dev-log
+unix  3      [ ]         STREAM     CONNECTED     57443    /var/run/dbus/system_                                                  bus_socket
+unix  3      [ ]         STREAM     CONNECTED     28756
+unix  3      [ ]         STREAM     CONNECTED     38054    /var/run/dbus/system_                                                  bus_socket
+unix  3      [ ]         STREAM     CONNECTED     39386    /var/run/dbus/system_                                                  bus_socket
+unix  3      [ ]         STREAM     CONNECTED     54290    /run/systemd/journal/                                                  stdout
+unix  2      [ ]         DGRAM                    21672
+unix  2      [ ]         DGRAM                    31010
+unix  3      [ ]         STREAM     CONNECTED     35893
+unix  3      [ ]         STREAM     CONNECTED     41033    /run/systemd/journal/                                                  stdout
+unix  2      [ ]         DGRAM                    11695
+unix  3      [ ]         STREAM     CONNECTED     10139
+unix  2      [ ]         DGRAM                    33920
+unix  3      [ ]         STREAM     CONNECTED     11698
+unix  3      [ ]         STREAM     CONNECTED     11697
+unix  3      [ ]         STREAM     CONNECTED     33926
+unix  3      [ ]         STREAM     CONNECTED     39380    /run/systemd/journal/                                                  stdout
+unix  3      [ ]         STREAM     CONNECTED     50445
+unix  2      [ ]         DGRAM                    44239
+unix  3      [ ]         STREAM     CONNECTED     33917
+unix  3      [ ]         STREAM     CONNECTED     44255
+unix  3      [ ]         STREAM     CONNECTED     11687
+unix  3      [ ]         STREAM     CONNECTED     38062
+unix  2      [ ]         DGRAM                    28760
+unix  3      [ ]         STREAM     CONNECTED     13590
+unix  2      [ ]         DGRAM                    38110
+unix  3      [ ]         STREAM     CONNECTED     57476    /run/systemd/journal/                                                  stdout
+unix  3      [ ]         STREAM     CONNECTED     941
+unix  3      [ ]         STREAM     CONNECTED     26492
+unix  3      [ ]         STREAM     CONNECTED     38053    /run/systemd/journal/                                                  stdout
+unix  2      [ ]         DGRAM                    536
+unix  3      [ ]         STREAM     CONNECTED     59569    /run/systemd/journal/                                                  stdout
+unix  3      [ ]         STREAM     CONNECTED     936
+unix  3      [ ]         STREAM     CONNECTED     38077    /run/systemd/journal/                                                  stdout
+unix  2      [ ]         DGRAM                    55441
+unix  3      [ ]         STREAM     CONNECTED     937
+unix  2      [ ]         DGRAM                    934
+unix  3      [ ]         STREAM     CONNECTED     11699    /var/run/dbus/system_                                                  bus_socket
+unix  3      [ ]         STREAM     CONNECTED     44256
+unix  3      [ ]         DGRAM                    635
+unix  3      [ ]         DGRAM                    636
+unix  2      [ ]         DGRAM                    11769
+unix  3      [ ]         DGRAM                    811
+unix  3      [ ]         STREAM     CONNECTED     50237    /run/systemd/journal/                                                  stdout
+unix  3      [ ]         STREAM     CONNECTED     39382    /var/run/dbus/system_                                                  bus_socket
+unix  3      [ ]         STREAM     CONNECTED     58485    /run/systemd/journal/                                                  stdout
+unix  3      [ ]         STREAM     CONNECTED     11622    /run/systemd/journal/                                                  stdout
+unix  3      [ ]         STREAM     CONNECTED     31947
+unix  3      [ ]         STREAM     CONNECTED     911
+unix  3      [ ]         STREAM     CONNECTED     20643
+unix  2      [ ]         DGRAM                    62977
+unix  3      [ ]         DGRAM                    810
+unix  2      [ ]         DGRAM                    629
+unix  3      [ ]         STREAM     CONNECTED     21609    /var/run/dbus/system_                                                  bus_socket
+unix  3      [ ]         STREAM     CONNECTED     11763
+unix  3      [ ]         STREAM     CONNECTED     45074    /run/systemd/journal/                                                  stdout
+unix  3      [ ]         STREAM     CONNECTED     29796
+unix  3      [ ]         STREAM     CONNECTED     16441
+unix  3      [ ]         DGRAM                    809
+unix  3      [ ]         STREAM     CONNECTED     58487    /run/systemd/journal/                                                  stdout
+unix  3      [ ]         STREAM     CONNECTED     27725    /run/systemd/journal/                                                  stdout
+unix  3      [ ]         STREAM     CONNECTED     59525
+unix  2      [ ]         DGRAM                    499
+unix  3      [ ]         DGRAM                    812
+unix  2      [ ]         DGRAM                    805
+unix  3      [ ]         STREAM     CONNECTED     60623
+ubuntu@instance-20180628-0844:~$ netstat -l
+Active Internet connections (only servers)
+Proto Recv-Q Send-Q Local Address           Foreign Address         State
+tcp        0      0 *:ssh                   *:*                     LISTEN
+tcp6       0      0 [::]:ssh                [::]:*                  LISTEN
+udp        0      0 *:54737                 *:*
+udp        0      0 *:mdns                  *:*
+udp6       0      0 [::]:52076              [::]:*
+udp6       0      0 [::]:mdns               [::]:*
+Active UNIX domain sockets (only servers)
+Proto RefCnt Flags       Type       State         I-Node   Path
+unix  2      [ ACC ]     STREAM     LISTENING     38118    /run/user/1000/systemd/private
+unix  2      [ ACC ]     SEQPACKET  LISTENING     485      /run/udev/control
+unix  2      [ ACC ]     STREAM     LISTENING     39212    /run/systemd/private
+unix  2      [ ACC ]     STREAM     LISTENING     39216    /run/systemd/journal/stdout
+unix  2      [ ACC ]     STREAM     LISTENING     483      /run/lvm/lvmpolld.socket
+unix  2      [ ACC ]     STREAM     LISTENING     487      /run/lvm/lvmetad.socket
+unix  2      [ ACC ]     STREAM     LISTENING     896      /run/snapd.socket
+unix  2      [ ACC ]     STREAM     LISTENING     897      /run/snapd-snap.socket
+unix  2      [ ACC ]     STREAM     LISTENING     39374    /run/uuidd/request
+unix  2      [ ACC ]     STREAM     LISTENING     39375    /var/run/dbus/system_bus_socket
+unix  2      [ ACC ]     STREAM     LISTENING     898      /var/run/avahi-daemon/socket
+unix  2      [ ACC ]     STREAM     LISTENING     899      /run/acpid.socket
+unix  2      [ ACC ]     STREAM     LISTENING     39376    /var/lib/lxd/unix.socket
+unix  2      [ ACC ]     STREAM     LISTENING     11770    @ISCSIADM_ABSTRACT_NAMESPACE
+unix  2      [ ACC ]     STREAM     LISTENING     1019     /var/run/NetworkManager/private-dhcp
+ubuntu@instance-20180628-0844:~$ nmap
+The program 'nmap' is currently not installed. You can install it by typing:
+sudo apt install nmap
+ubuntu@instance-20180628-0844:~$ sudo ufw status
+Status: active
+
+To                         Action      From
+--                         ------      ----
+80                         ALLOW       Anywhere
+8080                       ALLOW       Anywhere
+22                         ALLOW       Anywhere
+2003                       ALLOW       Anywhere
+2222                       ALLOW       Anywhere
+443                        ALLOW       Anywhere
+80/tcp                     ALLOW       Anywhere
+80 (v6)                    ALLOW       Anywhere (v6)
+8080 (v6)                  ALLOW       Anywhere (v6)
+22 (v6)                    ALLOW       Anywhere (v6)
+2003 (v6)                  ALLOW       Anywhere (v6)
+2222 (v6)                  ALLOW       Anywhere (v6)
+443 (v6)                   ALLOW       Anywhere (v6)
+80/tcp (v6)                ALLOW       Anywhere (v6)
+
+ubuntu@instance-20180628-0844:~$ sudo ufw allo 80/udp
+ERROR: Invalid syntax
+
+Usage: ufw COMMAND
+
+Commands:
+ enable                          enables the firewall
+ disable                         disables the firewall
+ default ARG                     set default policy
+ logging LEVEL                   set logging to LEVEL
+ allow ARGS                      add allow rule
+ deny ARGS                       add deny rule
+ reject ARGS                     add reject rule
+ limit ARGS                      add limit rule
+ delete RULE|NUM                 delete RULE
+ insert NUM RULE                 insert RULE at NUM
+ route RULE                      add route RULE
+ route delete RULE|NUM           delete route RULE
+ route insert NUM RULE           insert route RULE at NUM
+ reload                          reload firewall
+ reset                           reset firewall
+ status                          show firewall status
+ status numbered                 show firewall status as numbered list of RULES
+ status verbose                  show verbose firewall status
+ show ARG                        show firewall report
+ version                         display version information
+
+Application profile commands:
+ app list                        list application profiles
+ app info PROFILE                show information on PROFILE
+ app update PROFILE              update PROFILE
+ app default ARG                 set default application policy
+
+ubuntu@instance-20180628-0844:~$ sudo ufw allow 80/udp
+Rule added
+Rule added (v6)
+ubuntu@instance-20180628-0844:~$ sudo ufw allow 25565
+Rule added
+Rule added (v6)
+ubuntu@instance-20180628-0844:~$ sudo ufw loggin on
+ERROR: Invalid syntax
+
+Usage: ufw COMMAND
+
+Commands:
+ enable                          enables the firewall
+ disable                         disables the firewall
+ default ARG                     set default policy
+ logging LEVEL                   set logging to LEVEL
+ allow ARGS                      add allow rule
+ deny ARGS                       add deny rule
+ reject ARGS                     add reject rule
+ limit ARGS                      add limit rule
+ delete RULE|NUM                 delete RULE
+ insert NUM RULE                 insert RULE at NUM
+ route RULE                      add route RULE
+ route delete RULE|NUM           delete route RULE
+ route insert NUM RULE           insert route RULE at NUM
+ reload                          reload firewall
+ reset                           reset firewall
+ status                          show firewall status
+ status numbered                 show firewall status as numbered list of RULES
+ status verbose                  show verbose firewall status
+ show ARG                        show firewall report
+ version                         display version information
+
+Application profile commands:
+ app list                        list application profiles
+ app info PROFILE                show information on PROFILE
+ app update PROFILE              update PROFILE
+ app default ARG                 set default application policy
+
+ubuntu@instance-20180628-0844:~$ sudo ufw logging on
+Logging enabled
+ubuntu@instance-20180628-0844:~$ cat /var/log/ufw.log
+cat: /var/log/ufw.log: No such file or directory
+ubuntu@instance-20180628-0844:~$ ls /var/log/
+alternatives.log  auth.log  cloud-init.log         dist-upgrade  fsck      lightdm  syslog               upstart
+apt               btmp      cloud-init-output.log  dpkg.log      kern.log  lxd      unattended-upgrades  wtmp
+ubuntu@instance-20180628-0844:~$ cat /var/log/ufw.log
+cat: /var/log/ufw.log: No such file or directory
+ubuntu@instance-20180628-0844:~$ sudo ufw allow OpneSSH
+ERROR: Could not find a profile matching 'OpneSSH'
+ubuntu@instance-20180628-0844:~$ sudo ufw allow OpenSSH
+Rule added
+Rule added (v6)
+ubuntu@instance-20180628-0844:~$ sedo ufw status
+No command 'sedo' found, did you mean:
+ Command 'sudo' from package 'sudo-ldap' (universe)
+ Command 'sudo' from package 'sudo' (main)
+ Command 'sed' from package 'sed' (main)
+sedo: command not found
+ubuntu@instance-20180628-0844:~$ sudo ufw status
+Status: active
+
+To                         Action      From
+--                         ------      ----
+80                         ALLOW       Anywhere
+8080                       ALLOW       Anywhere
+22                         ALLOW       Anywhere
+2003                       ALLOW       Anywhere
+2222                       ALLOW       Anywhere
+443                        ALLOW       Anywhere
+80/tcp                     ALLOW       Anywhere
+80/udp                     ALLOW       Anywhere
+25565                      ALLOW       Anywhere
+OpenSSH                    ALLOW       Anywhere
+80 (v6)                    ALLOW       Anywhere (v6)
+8080 (v6)                  ALLOW       Anywhere (v6)
+22 (v6)                    ALLOW       Anywhere (v6)
+2003 (v6)                  ALLOW       Anywhere (v6)
+2222 (v6)                  ALLOW       Anywhere (v6)
+443 (v6)                   ALLOW       Anywhere (v6)
+80/tcp (v6)                ALLOW       Anywhere (v6)
+80/udp (v6)                ALLOW       Anywhere (v6)
+25565 (v6)                 ALLOW       Anywhere (v6)
+OpenSSH (v6)               ALLOW       Anywhere (v6)
+
+ubuntu@instance-20180628-0844:~$

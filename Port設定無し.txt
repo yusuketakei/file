@@ -1,0 +1,131 @@
+Using username "ubuntu".
+Authenticating with public key "imported-openssh-key"
+Welcome to Ubuntu 16.04.4 LTS (GNU/Linux 4.4.0-127-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+  Get cloud support with Ubuntu Advantage Cloud Guest:
+    http://www.ubuntu.com/business/services/cloud
+
+14 packages can be updated.
+0 updates are security updates.
+
+
+*** System restart required ***
+
+The programs included with the Ubuntu system are free software;
+the exact distribution terms for each program are described in the
+individual files in /usr/share/doc/*/copyright.
+
+Ubuntu comes with ABSOLUTELY NO WARRANTY, to the extent permitted by
+applicable law.
+
+To run a command as administrator (user "root"), use "sudo <command>".
+See "man sudo_root" for details.
+
+ubuntu@instance-20180628-1059:~$ sudo getenforce
+sudo: getenforce: command not found
+ubuntu@instance-20180628-1059:~$
+ubuntu@instance-20180628-1059:~$ sudo ufw status
+Status: inactive
+ubuntu@instance-20180628-1059:~$ netstat -an
+Active Internet connections (servers and established)
+Proto Recv-Q Send-Q Local Address           Foreign Address         State
+tcp        0      0 0.0.0.0:22              0.0.0.0:*               LISTEN
+tcp        0      0 10.0.1.5:41320          169.254.0.2:3260        ESTABLISHED
+tcp        0    256 10.0.1.5:22             101.102.171.70:51634    ESTABLISHED
+tcp6       0      0 :::22                   :::*                    LISTEN
+udp        0      0 0.0.0.0:49187           0.0.0.0:*
+udp        0      0 0.0.0.0:5353            0.0.0.0:*
+udp6       0      0 :::42537                :::*
+udp6       0      0 :::5353                 :::*
+Active UNIX domain sockets (servers and established)
+Proto RefCnt Flags       Type       State         I-Node   Path
+unix  2      [ ]         DGRAM                    87553    /run/user/1000/systemd/notify
+unix  2      [ ACC ]     STREAM     LISTENING     87554    /run/user/1000/systemd/private
+unix  2      [ ACC ]     SEQPACKET  LISTENING     489      /run/udev/control
+unix  3      [ ]         DGRAM                    466      /run/systemd/notify
+unix  2      [ ACC ]     STREAM     LISTENING     467      /run/systemd/private
+unix  2      [ ACC ]     STREAM     LISTENING     472      /run/systemd/journal/stdout
+unix  7      [ ]         DGRAM                    473      /run/systemd/journal/socket
+unix  2      [ ]         DGRAM                    477      /run/systemd/journal/syslog
+unix  2      [ ACC ]     STREAM     LISTENING     22828    /run/lvm/lvmetad.socket
+unix  9      [ ]         DGRAM                    492      /run/systemd/journal/dev-log
+unix  2      [ ACC ]     STREAM     LISTENING     535      /run/lvm/lvmpolld.socket
+unix  2      [ ACC ]     STREAM     LISTENING     23147    /run/snapd.socket
+unix  2      [ ACC ]     STREAM     LISTENING     23148    /run/snapd-snap.socket
+unix  2      [ ACC ]     STREAM     LISTENING     23149    /run/uuidd/request
+unix  2      [ ACC ]     STREAM     LISTENING     859      /run/acpid.socket
+unix  2      [ ACC ]     STREAM     LISTENING     860      /var/run/dbus/system_bus_socket
+unix  2      [ ACC ]     STREAM     LISTENING     861      /var/run/avahi-daemon/socket
+unix  2      [ ACC ]     STREAM     LISTENING     23150    /var/lib/lxd/unix.socket
+unix  2      [ ACC ]     STREAM     LISTENING     34955    @ISCSIADM_ABSTRACT_NAMESPACE
+unix  2      [ ACC ]     STREAM     LISTENING     921      /var/run/NetworkManager/private-dhcp
+unix  3      [ ]         STREAM     CONNECTED     946      /run/systemd/journal/stdout
+unix  3      [ ]         STREAM     CONNECTED     61486
+unix  3      [ ]         STREAM     CONNECTED     878
+unix  3      [ ]         STREAM     CONNECTED     28839    /var/run/dbus/system_bus_socket
+unix  2      [ ]         DGRAM                    69266
+unix  3      [ ]         STREAM     CONNECTED     58418    /run/systemd/journal/stdout
+unix  3      [ ]         DGRAM                    24619
+unix  2      [ ]         DGRAM                    41247
+unix  3      [ ]         STREAM     CONNECTED     61531
+unix  3      [ ]         STREAM     CONNECTED     14375    /run/systemd/journal/stdout
+unix  3      [ ]         STREAM     CONNECTED     69260
+unix  3      [ ]         STREAM     CONNECTED     25074
+unix  2      [ ]         DGRAM                    38056
+unix  3      [ ]         STREAM     CONNECTED     84370    /run/systemd/journal/stdout
+unix  2      [ ]         DGRAM                    882
+unix  3      [ ]         STREAM     CONNECTED     27880
+unix  2      [ ]         DGRAM                    24612
+unix  2      [ ]         DGRAM                    40823
+unix  3      [ ]         STREAM     CONNECTED     947      /run/systemd/journal/stdout
+unix  3      [ ]         STREAM     CONNECTED     29258    /run/systemd/journal/stdout
+unix  3      [ ]         STREAM     CONNECTED     28897
+unix  3      [ ]         DGRAM                    24618
+unix  3      [ ]         STREAM     CONNECTED     934      /run/systemd/journal/stdout
+unix  3      [ ]         STREAM     CONNECTED     52319
+unix  2      [ ]         DGRAM                    34930
+unix  2      [ ]         DGRAM                    741
+unix  2      [ ]         DGRAM                    70526
+unix  3      [ ]         STREAM     CONNECTED     37077
+unix  3      [ ]         STREAM     CONNECTED     930      /run/systemd/journal/stdout
+unix  3      [ ]         STREAM     CONNECTED     25086
+unix  3      [ ]         STREAM     CONNECTED     25085
+unix  3      [ ]         DGRAM                    748
+unix  2      [ ]         DGRAM                    25082
+unix  3      [ ]         STREAM     CONNECTED     932      /run/systemd/journal/stdout
+unix  3      [ ]         DGRAM                    745
+unix  3      [ ]         DGRAM                    746
+unix  3      [ ]         STREAM     CONNECTED     34936
+unix  3      [ ]         STREAM     CONNECTED     70541
+unix  3      [ ]         STREAM     CONNECTED     41097
+unix  2      [ ]         DGRAM                    30187
+unix  3      [ ]         STREAM     CONNECTED     28803    /run/systemd/journal/stdout
+unix  3      [ ]         STREAM     CONNECTED     28899    /var/run/dbus/system_bus_socket
+unix  3      [ ]         STREAM     CONNECTED     935      /run/systemd/journal/stdout
+unix  2      [ ]         DGRAM                    495
+unix  3      [ ]         STREAM     CONNECTED     23168
+unix  3      [ ]         STREAM     CONNECTED     955      /run/systemd/journal/stdout
+unix  3      [ ]         STREAM     CONNECTED     25087    /var/run/dbus/system_bus_socket
+unix  3      [ ]         STREAM     CONNECTED     18598
+unix  3      [ ]         DGRAM                    747
+unix  3      [ ]         STREAM     CONNECTED     68632
+unix  3      [ ]         STREAM     CONNECTED     26726    /var/run/dbus/system_bus_socket
+unix  3      [ ]         STREAM     CONNECTED     68633
+unix  3      [ ]         STREAM     CONNECTED     41036
+unix  2      [ ]         DGRAM                    34954
+unix  3      [ ]         STREAM     CONNECTED     68049
+unix  3      [ ]         STREAM     CONNECTED     931      /run/systemd/journal/stdout
+unix  3      [ ]         STREAM     CONNECTED     36978
+unix  3      [ ]         STREAM     CONNECTED     25088    /var/run/dbus/system_bus_socket
+unix  2      [ ]         DGRAM                    68631
+unix  3      [ ]         STREAM     CONNECTED     63516
+unix  3      [ ]         STREAM     CONNECTED     25090    /var/run/dbus/system_bus_socket
+unix  3      [ ]         STREAM     CONNECTED     68637
+unix  3      [ ]         STREAM     CONNECTED     70542
+unix  3      [ ]         STREAM     CONNECTED     62657
+ubuntu@instance-20180628-1059:~$
+
