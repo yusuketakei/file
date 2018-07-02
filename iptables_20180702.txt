@@ -1,0 +1,61 @@
+ubuntu@instance-20180628-1410:~$ sudo iptables -I INPUT 6 -p tcp --dport 8080 -j ACCEPT
+ubuntu@instance-20180628-1410:~$
+ubuntu@instance-20180628-1410:/opt/gpudb$ sudo iptables -L --line-numbers
+Chain INPUT (policy ACCEPT)
+num  target     prot opt source               destination
+1    ACCEPT     all  --  anywhere             anywhere             state RELATED,ESTABLISHED
+2    ACCEPT     icmp --  anywhere             anywhere
+3    ACCEPT     all  --  anywhere             anywhere
+4    ACCEPT     udp  --  anywhere             anywhere             udp spt:ntp
+5    ACCEPT     tcp  --  anywhere             anywhere             state NEW tcp dpt:ssh
+6    ACCEPT     tcp  --  anywhere             anywhere             tcp dpt:http-alt
+7    REJECT     all  --  anywhere             anywhere             reject-with icmp-host-prohibited
+8    ACCEPT     tcp  --  anywhere             anywhere             tcp dpt:http-alt
+
+Chain FORWARD (policy ACCEPT)
+num  target     prot opt source               destination
+1    REJECT     all  --  anywhere             anywhere             reject-with icmp-host-prohibited
+
+Chain OUTPUT (policy ACCEPT)
+num  target     prot opt source               destination
+1    BareMetalInstanceServices  all  --  anywhere             link-local/16
+
+Chain BareMetalInstanceServices (1 references)
+num  target     prot opt source               destination
+^C
+ubuntu@instance-20180628-1410:/opt/gpudb$ sudo iptables -D INPUT 8
+ubuntu@instance-20180628-1410:/opt/gpudb$ sudo iptables -L --line-numbers
+Chain INPUT (policy ACCEPT)
+num  target     prot opt source               destination
+1    ACCEPT     all  --  anywhere             anywhere             state RELATED,ESTABLISHED
+2    ACCEPT     icmp --  anywhere             anywhere
+3    ACCEPT     all  --  anywhere             anywhere
+4    ACCEPT     udp  --  anywhere             anywhere             udp spt:ntp
+5    ACCEPT     tcp  --  anywhere             anywhere             state NEW tcp dpt:ssh
+6    ACCEPT     tcp  --  anywhere             anywhere             tcp dpt:http-alt
+7    REJECT     all  --  anywhere             anywhere             reject-with icmp-host-prohibited
+
+Chain FORWARD (policy ACCEPT)
+num  target     prot opt source               destination
+1    REJECT     all  --  anywhere             anywhere             reject-with icmp-host-prohibited
+
+Chain OUTPUT (policy ACCEPT)
+num  target     prot opt source               destination
+1    BareMetalInstanceServices  all  --  anywhere             link-local/16
+
+Chain BareMetalInstanceServices (1 references)
+num  target     prot opt source               destination
+1    ACCEPT     tcp  --  anywhere             169.254.0.2          owner UID match root tcp dpt:iscsi-target /* See the Oracle-Provided Images section in the Oracle Bare Metal documentation for security impact of modifying or removing this rule */
+2    ACCEPT     tcp  --  anywhere             169.254.2.0/24       owner UID match root tcp dpt:iscsi-target /* See the Oracle-Provided Images section in the Oracle Bare Metal documentation for security impact of modifying or removing this rule */
+3    ACCEPT     tcp  --  anywhere             169.254.0.2          tcp dpt:http /* See the Oracle-Provided Images section in the Oracle Bare Metal documentation for security impact of modifying or removing this rule */
+4    ACCEPT     udp  --  anywhere             169.254.169.254      udp dpt:domain /* See the Oracle-Provided Images section in the Oracle Bare Metal documentation for security impact of modifying or removing this rule */
+5    ACCEPT     tcp  --  anywhere             169.254.169.254      tcp dpt:domain /* See the Oracle-Provided Images section in the Oracle Bare Metal documentation for security impact of modifying or removing this rule */
+6    ACCEPT     tcp  --  anywhere             169.254.0.3          owner UID match root tcp dpt:http /* See the Oracle-Provided Images section in the Oracle Bare Metal documentation for security impact of modifying or removing this rule */
+7    ACCEPT     tcp  --  anywhere             169.254.0.4          tcp dpt:http /* See the Oracle-Provided Images section in the Oracle Bare Metal documentation for security impact of modifying or removing this rule */
+8    ACCEPT     tcp  --  anywhere             169.254.169.254      tcp dpt:http /* See the Oracle-Provided Images section in the Oracle Bare Metal documentation for security impact of modifying or removing this rule */
+9    ACCEPT     udp  --  anywhere             169.254.169.254      udp dpt:bootps /* See the Oracle-Provided Images section in the Oracle Bare Metal documentation for security impact of modifying or removing this rule */
+10   ACCEPT     udp  --  anywhere             169.254.169.254      udp dpt:tftp /* See the Oracle-Provided Images section in the Oracle Bare Metal documentation for security impact of modifying or removing this rule */
+11   ACCEPT     udp  --  anywhere             169.254.169.254      udp dpt:ntp /* See the Oracle-Provided Images section in the Oracle Bare Metal documentation for security impact of modifying or removing this rule */
+12   REJECT     tcp  --  anywhere             link-local/16        tcp /* See the Oracle-Provided Images section in the Oracle Bare Metal documentation for security impact of modifying or removing this rule */ reject-with tcp-reset
+13   REJECT     udp  --  anywhere             link-local/16        udp /* See the Oracle-Provided Images section in the Oracle Bare Metal documentation for security impact of modifying or removing this rule */ reject-with icmp-port-unreachable
+ubuntu@instance-20180628-1410:/opt/gpudb$
