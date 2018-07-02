@@ -1,0 +1,43 @@
+ubuntu@instance-20180628-1410:~$ ps -aux | fgrep -i tomcat
+gpudb     20797  0.1  0.6 44097024 1214728 ?    Sl   Jun29   4:11 /usr/bin/java -Djava.util.logging.config.file=/opt/gpudb/tomcat/conf/logging.properties -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager -Djava.endorsed.dirs= -classpath /opt/gpudb/tomcat/bin/bootstrap.jar:/opt/gpudb/tomcat/bin/tomcat-juli.jar -Dcatalina.base=/opt/gpudb/tomcat -Dcatalina.home=/opt/gpudb/tomcat -Djava.io.tmpdir=/opt/gpudb/tomcat/temp org.apache.catalina.startup.Bootstrap start
+ubuntu    43633  0.0  0.0  12944   980 pts/1    S+   04:37   0:00 grep -F --color=auto -i tomcat
+ubuntu@instance-20180628-1410:~$
+ubuntu@instance-20180628-1410:~$
+ubuntu@instance-20180628-1410:~$
+ubuntu@instance-20180628-1410:~$ netstat -tan
+Active Internet connections (servers and established)
+Proto Recv-Q Send-Q Local Address           Foreign Address         State
+tcp        0      0 0.0.0.0:2004            0.0.0.0:*               LISTEN
+tcp        0      0 0.0.0.0:9300            0.0.0.0:*               LISTEN
+tcp        0      0 0.0.0.0:8181            0.0.0.0:*               LISTEN
+tcp        0      0 0.0.0.0:22              0.0.0.0:*               LISTEN
+tcp        0      0 0.0.0.0:7002            0.0.0.0:*               LISTEN
+tcp        0      0 0.0.0.0:5552            0.0.0.0:*               LISTEN
+tcp        0      0 0.0.0.0:5553            0.0.0.0:*               LISTEN
+tcp        0      0 0.0.0.0:2003            0.0.0.0:*               LISTEN
+tcp        0      0 127.0.0.1:5552          127.0.0.1:53272         ESTABLISHED
+tcp        0      0 10.0.1.9:22             101.102.171.70:50959    ESTABLISHED
+tcp        0      0 127.0.0.1:59884         127.0.0.1:5553          ESTABLISHED
+tcp        0      0 10.0.1.9:22             101.102.171.70:65324    ESTABLISHED
+tcp        0      0 127.0.0.1:5553          127.0.0.1:59884         ESTABLISHED
+tcp        0      0 127.0.0.1:53272         127.0.0.1:5552          ESTABLISHED
+tcp        0      0 10.0.1.9:22             101.102.171.70:49718    ESTABLISHED
+tcp        0      0 10.0.1.9:43206          169.254.0.2:3260        ESTABLISHED
+tcp        0      0 127.0.0.1:53276         127.0.0.1:5552          ESTABLISHED
+tcp        0      0 127.0.0.1:5552          127.0.0.1:53276         ESTABLISHED
+tcp        0      0 10.0.1.9:42334          169.254.2.2:3260        ESTABLISHED
+tcp        0    256 10.0.1.9:22             101.102.171.70:49254    ESTABLISHED
+tcp6       0      0 :::22                   :::*                    LISTEN
+tcp6       0      0 :::3000                 :::*                    LISTEN
+tcp6       0      0 127.0.0.1:8005          :::*                    LISTEN
+tcp6       0      0 :::8009                 :::*                    LISTEN
+tcp6       0      0 :::8080                 :::*                    LISTEN
+ubuntu@instance-20180628-1410:~$
+ubuntu@instance-20180628-1410:~$
+ubuntu@instance-20180628-1410:~$ lsof -i:8080
+ubuntu@instance-20180628-1410:~$
+ubuntu@instance-20180628-1410:~$
+
+
+
+
