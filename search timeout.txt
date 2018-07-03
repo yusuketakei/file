@@ -1,0 +1,43 @@
+ubuntu@instance-20180703-1347:~$ sudo cat /opt/gpudb/connectors/odbcserver/bin/g                                    pudbodbc.ini
+[Server]
+LogLevel=4
+LogNamespace=GISFederal::GPUdbODBC
+LogPath=/opt/gpudb/connectors/odbcserver/logs
+DriverLocale=en-US
+DriverManagerEncoding=UTF-16
+ErrorMessagesPath=/opt/gpudb/connectors/odbcserver/ErrorMessages
+UseSignaling=Yes
+BufferAllocationSize=8192
+PreAllocatedBuffers=1000
+MaxConnections=1024
+ListenAddress= 0.0.0.0
+ConnectionIdleTimeout=86400
+ListenPort=9292
+UseSsl=0
+SslCertFile=[INSTALLDIR]/SimbaEngineSDK/9.5/Documentation/SSLCertificates/Sample                                    ServerCertificate.pem
+SslKeyFile=[INSTALLDIR]/SimbaEngineSDK/9.5/Documentation/SSLCertificates/SampleS                                    erverKey.pem
+CertPath=/opt/gpudb/certs
+SslAllowHostMismatch=0
+MaxDataChunkSize=65550
+MinWorkerThreads=10
+TaskQueueTimeout=1000
+ConsoleOutput=0
+ReceivedLinesToShow=0
+LogTree=0
+KeepTempTables=0
+URL=http://127.0.0.1:9191/
+UID=
+PWD=
+TTL=60
+ParentSet=
+TempCollection=__TEMP
+MaxQueryDimensions=10
+DontCombine=0
+MaxRowsToFetch=100000
+RowsPerFetch=10000
+CacheTimeoutSeconds=20
+Timeout=0
+UseQueryCaching=1
+QueryCacheTTL=60
+SplitJoins=0
+ubuntu@instance-20180703-1347:~$
