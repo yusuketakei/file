@@ -1,0 +1,30 @@
+Using username "ubuntu".
+Authenticating with public key "imported-openssh-key"
+Welcome to Ubuntu 16.04.4 LTS (GNU/Linux 4.4.0-130-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+  Get cloud support with Ubuntu Advantage Cloud Guest:
+    http://www.ubuntu.com/business/services/cloud
+
+92 packages can be updated.
+0 updates are security updates.
+
+
+Last login: Wed Jul 11 00:21:15 2018 from 101.102.171.70
+ubuntu@instance-20180712-1808:~$ sudo blkid
+/dev/sda1: LABEL="cloudimg-rootfs" UUID="a6ca7e22-953e-4ece-ba88-576f1226f6ee" TYPE="ext4" PARTUUID="63e9f63a-3bd4-4b9e-a0ef-1e2e66522f40"
+/dev/sda15: LABEL="UEFI" UUID="38D3-2379" TYPE="vfat" PARTUUID="893577ec-6a47-4ee3-ac75-fbc091bec72a"
+/dev/sda14: PARTUUID="d0d2ac61-4343-41b2-bae7-5ee8e609826d"
+ubuntu@instance-20180712-1808:~$
+ubuntu@instance-20180712-1808:~$ lsblk
+NAME    MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT
+sda       8:0    0    3T  0 disk
+„¥„Ÿsda1    8:1    0    3T  0 part /
+„¥„Ÿsda14   8:14   0    4M  0 part
+„¤„Ÿsda15   8:15   0  106M  0 part /boot/efi
+ubuntu@instance-20180712-1808:~$
+ubuntu@instance-20180712-1808:~$
+
